@@ -1,0 +1,24 @@
+<h1>회원 목록 정보</h1>
+<% @users.each do |u|%>
+<p><%=u.email%></p>
+<p><%=u.password%></p>
+<% end %>
+<p></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>번호</th>
+      <th>email</th>
+      <th>가입시기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |u|%>
+    <tr>
+      <th scope="row"><%= u.id %></th>
+      <td><%= u.email%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

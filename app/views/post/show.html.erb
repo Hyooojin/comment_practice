@@ -1,11 +1,14 @@
 <h1>게시글 보기</h1>
 <p>제목: <%= @post.title %></p>
 <p>내용: <%= @post.content%></p>
-<form action="/post/create_comment/<%=@post.id%>">
-    <input type="text" name="content">
-    <input type="submit" value="댓글쓰기">
-</form>
 
-<% @post.contents.each do |c|%>
+<%=form_tag("/post/create_comment/#{@post.id}", method: "post") do %>
+    <%= label_tag(:content)%>
+    <%= text_field_tag(:content)%>
+    <br>
+    <%= submit_tag("댓글달기")%>
+<% end %>
+
+<% @post.comments.each do |c|%>
     <p><%= c.content%></p>
 <% end %>

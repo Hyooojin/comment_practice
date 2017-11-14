@@ -1,6 +1,10 @@
 <h1>게시글 작성</h1>
-<form action="/post/create">
-    제목:<input type="text" name="title">
-    내용:<input type="text" name="content">
-    <input type="submit" value="글쓰기">
-</form>
+<%= form_tag("/post/create", method: "post") do%>
+    <%= label_tag(:title, "제목 : ")%>
+   <%= text_field_tag(:title)%>
+   <br>
+   <%= label_tag(:content)%>
+    <%= text_field_tag(:content)%>
+    <br>
+    <%=submit_tag("글쓰기")%>
+<% end %>

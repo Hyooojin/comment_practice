@@ -1,14 +1,31 @@
 Rails.application.routes.draw do
+  resources :blogs
+  get 'user/index'
+
+  get 'user/new'
+
+  post 'user/create'
+
+  get 'user/show'
+
+  get 'user/login'
+
+  post 'user/login_process'
+
+  get 'user/logout'
+
   root 'post#index'
   get 'post/index'
 
   get 'post/new'
 
-  get 'post/create'
+  post 'post/create'
 
   get 'post/show/:id' => 'post#show'
   
-  get 'post/create_comment/:id' => 'post#create_comment'
+  post 'post/create_comment/:id' => 'post#create_comment'
+  
+  get 'post/destroy/:id' => 'post#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

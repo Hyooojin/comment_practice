@@ -1,0 +1,29 @@
+<h1>게시글 목록</h1>
+<a href="/post/new">게시글 작성</a>
+<div class="container">
+    <div class="row">
+            
+            
+            
+            <% @posts.each do |p|%>
+             <div class="card col-4" style="width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title"><%=p.title%></h4>
+                <h6 class="card-subtitle mb-2 text-muted"><%=p.id%>번째 글</h6>
+                <p class="card-text"><%=p.content%></p>
+                <a href="#" class="card-link"><%=p.user.email%></a>
+                <a href="/post/show/<%=p.id%>" class="card-link">수정</a>
+                <a href="/post/destroy/<%=p.id%>" class="card-link">삭제</a>
+              </div>
+             </div>
+            <% end %>
+        
+        
+        
+        
+    </div>
+</div>
+
+<!--<3% @posts.each do |p|%>
+<p><3%=p.id%>번째:<3%=p.title%><a href="/post/show/<3%=p.id%>">보기</a></p>
+<3% end %>-->

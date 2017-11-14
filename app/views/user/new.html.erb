@@ -1,0 +1,20 @@
+<h1>회원가입</h1>
+<p>회원가입을 절차에 따라 진행해주세요</p>
+<%=form_tag("/user/create", method: "post") do%>
+  <%=label_tag(:email)%>
+  <%=text_field_tag(:email)%><br/>
+  <%=label_tag(:password)%>
+  <%=text_field_tag(:password)%><br/>
+  <%=submit_tag("회원가입")%>
+<% end %>
+
+<!--authenticity_token-->
+<!--<form action="/user/create" method="post">-->
+<!--    email: <input type="email" name="email"><br/>-->
+<!--    password: <input type="password" name="password"><br/>-->
+<!--    <input type="hidden" name="authenticity_token"value="<#%= form_authenticity_token()%>">-->
+<!--    <input type="submit" value="회원가입">-->
+<!--</form>-->
+<!--이후 회원가입한 정보를 create.erb에서 보여지도록 한다.-->
+<!--값을 받아오고 db에 저장할 수 있도록 컨트롤러 설정-->
+<!--회원가입한 대상으로 회원정보를 뿌려준다.-->

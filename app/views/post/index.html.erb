@@ -1,6 +1,0 @@
-<h1>게시글 목록</h1>
-<a href="/post/new">게시글 작성</a>
-
-<% @posts.each do |p|%>
-<p><%=p.id%>번째:<%=p.title%><a href="/post/show/<%=p.id%>">보기</a></p>
-<% end %>

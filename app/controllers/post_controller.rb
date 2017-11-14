@@ -11,7 +11,8 @@ class PostController < ApplicationController
   def create # 작성된 게시글 DB에 넣는 액션
     Post.create(
       title: params[:title],
-      content: params[:content]
+      content: params[:content],
+      user_id:session[:user_id]
       )
     redirect_to '/'
   end
@@ -24,10 +25,17 @@ class PostController < ApplicationController
   end
   
   def create_comment # 해당하는 글에 댓글 다는 액션(show)
-    Content.create(
+    Comment.create(
       content: params[:content],
       post_id: params[:id] #url로 정보가 날라온다.
       )
       redirect_to :back
   end
+  
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to '/'
+    
+  end
+  
 end
