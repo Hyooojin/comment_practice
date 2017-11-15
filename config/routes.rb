@@ -1,4 +1,33 @@
 Rails.application.routes.draw do
+  
+  
+  root 'tweets#index'
+  
+  resources :tweets
+  # get 'tweets/index'
+
+  # get 'tweets/new'
+  
+  # post 'tweets', to:'tweets#create' #RESTful 라우트 방식 
+  # # get 'tweets', to: 'tweets#create'
+  # # get 'tweets/create' => 'tweets#create'
+  
+  # get 'tweets/:id/edit' => 'tweets#edit'
+
+  # put 'tweets/update/:id' => 'tweets#update'
+
+  # delete 'tweets/:id' => 'tweets#destroy'
+
+  get 'index/new'
+
+  get 'index/create'
+
+  get 'index/edit'
+
+  get 'index/update'
+
+  get 'index/destroy'
+
   resources :blogs
   get 'user/index'
 
@@ -14,7 +43,6 @@ Rails.application.routes.draw do
 
   get 'user/logout'
 
-  root 'post#index'
   get 'post/index'
 
   get 'post/new'

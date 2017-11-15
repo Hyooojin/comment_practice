@@ -18,7 +18,7 @@
     <tr>
         <th scope="row"><%= post.id %></th>
         <td><a href="/post/show/<%= post.id %>"><%= post.title %></a></td>
-        <td><%= post.user.email if post.user %></td>
+        <td><%= post.user.email if post.user %></td> <!--우회 방법 post.user가 있을 때만 참조하겠다. -->
         <td><%= time_ago_in_words(post.created_at) %></td>
     </tr>
     <% end %>

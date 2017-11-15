@@ -1,0 +1,15 @@
+<h1>트윗 수정하기</h1>
+<%= form_tag("/tweets/#{@tweet.id}", method:"put") do %>
+    <%= label_tag(:content, "")%>
+    <%= text_field_tag(:content, @tweet.content)%>
+    <br/>
+    <%=submit_tag("수정하기")%>
+<% end %>
+
+
+
+<!--<form action="/tweets/update/<#%= @tweet.id %>" method="get">-->
+<!--    <input type="text" name="content" value="<#%=@tweet.content %>">-->
+<!--    <input type="submit" vlaue="제출">-->
+<!--    <input type="hidden" name="authenticity_token" value="<#%= form_authenticity_token%>">-->
+<!--</form>-->
