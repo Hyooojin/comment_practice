@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   
   post 'post/create_comment/:id' => 'post#create_comment'
   
+  get 'post/edit/:id' => 'post#edit'
+  
+  get 'post/update/:id' => 'post#update'
+  
   get 'post/destroy/:id' => 'post#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.

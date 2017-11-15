@@ -1,6 +1,9 @@
 <h1>게시글 보기</h1>
 <p>제목: <%= @post.title %></p>
 <p>내용: <%= @post.content%></p>
+<a href="/post/edit/<%= @post.id%>">수정</a>
+<a href="/post/destroy/<%= @post.id%>">삭제</a>
+
 
 <%=form_tag("/post/create_comment/#{@post.id}", method: "post") do %>
     <%= label_tag(:content)%>
@@ -12,3 +15,4 @@
 <% @post.comments.each do |c|%>
     <p><%= c.content%></p>
 <% end %>
+

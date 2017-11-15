@@ -1,4 +1,8 @@
 class PostController < ApplicationController
+  
+  before_action:find_post, only: [:show, :edit, :update, :destroy]
+  
+  
   def index # 게시글 다 보여주는 페이지
     @posts = Post.all
     # Post.all이면 배열로 들어간다. posts는 배열
@@ -18,7 +22,7 @@ class PostController < ApplicationController
   end
 
   def show # 1개의 게시글 보는 페이지
-    @post = Post.find(params[:id])
+    #find_post
     puts @post
     
     # @comments = Comment.where(post_id: params[:id]) 필요없다. 
@@ -32,10 +36,35 @@ class PostController < ApplicationController
       redirect_to :back
   end
   
+  def edit
+    #find_post
+    #@post = Post.find(params[:id])
+    
+    #render :nothing => true
+
+  end
+  
+  def update
+    #find_post
+    @post.update(
+      title: params[:title],
+      content: params[:content]
+      )
+      redirect_to "/post/show/#{@post.id}"
+  end
+  
   def destroy
-    Post.find(params[:id]).destroy
+    #Post.find(params[:id])
+    @post.destroy
     redirect_to '/'
     
+  end
+  
+  # private으로 붙여주는게 관례 Post 컨트롤러 안에 method안에서만 쓸 것이다. 
+  private
+  def find_post
+    @post = Post.find(params[:id])
+    #show, update, edit에 관해서는 코드가 불리기 전에 수행을 하고 싶다. => 필터링 
   end
   
 end
